@@ -1,0 +1,74 @@
+
+
+ #include <bits/stdc++.h>
+        #define ll long long
+        #define ld long double
+        #define ull unsigned long long
+        #define pb(x) push_back(x)
+        #define testcase int t ; cin>>t ; while(t--)
+        #define fx(x) fixed<<setprecision(x)
+        #define leadz(x) std::setfill('0') << std::setw(x)
+        #define bobo ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+        #define arrayn int n;cin>>n;int x[n]; for ( int i = 0 ; i < n ; i++){cin>>x[i];}
+        #define tstv for(int i = 0 ; i < v.size(); i++){cout<<v[i]<<" ";}
+        #define tstv1 for(int i = 0 ; i < v1.size(); i++){cout<<v1[i]<<" ";}
+	#define fnd(v,u) bool hh = v.find(u) != v.end();
+    using namespace std ;
+
+
+        ull factorial(ull n)
+    {if (n == 0)
+    return 1;
+    else
+    return n * factorial(n - 1);}
+
+    int gcd(int a,int b)
+    {if(b==0)return a;
+    else return gcd(b,a%b);}
+
+    int lcm(int a,int b)
+    {return a*b/gcd(a,b);}
+
+    string lexo(string x)
+    {
+    if(next_permutation(x.begin(),x.end()))
+    {return x.c_str();}
+    else
+    {return "no answer";}
+    }
+    bool bigsort(string a, string b){
+    return a.length() == b.length() ? a < b : a.length() < b.length();
+    }
+
+
+    int main (){
+        bobo;
+        ll n,k;
+        cin>>n>>k;
+        ll f,times;
+        n%k==0?f=0:f=1;
+        times=n/k;
+        ll ho=n%k;
+        for(int i = 0 ; i < times ; i++)
+        {
+            ll l;cin>>l;
+            for(int j = 1 ; j < k ;j++)
+            {
+                ll mm;cin>>mm;
+                l=min(mm,l);
+            }
+            cout<<l<<" ";
+        }
+        if(f==1)
+        {
+            ll lo;cin>>lo;
+            for(int j = 1 ; j < ho ;j++)
+            {
+                ll lm;cin>>lm;
+                lo=min(lm,lo);
+            }
+            cout<<lo;
+        }
+
+
+    }
