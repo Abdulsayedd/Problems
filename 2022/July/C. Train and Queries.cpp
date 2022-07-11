@@ -1,10 +1,5 @@
-//============================
-// Name        : C. Train and Queries
+// Problem     : C. Train and Queries , https://codeforces.com/problemset/problem/1702/C
 // Author      : Abdulsayed
-// Version     : 2022
-// Description :
-// Link        : https://codeforces.com/problemset/problem/1702/C
-//============================
 #include <bits/stdc++.h>
 #define pre ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 using namespace std ;
@@ -25,7 +20,7 @@ int main () {
       {
           int l,r;
           cin>>l>>r;
-          bool f = mp[l].first && mp[r].first && mp[l].first<mp[r].second;
+          bool f = (mp[l].first && mp[r].first) && (mp[l].first<mp[r].second);
           f?cout<<"YES"<<"\n":cout<<"NO"<<"\n";
       }
     }
