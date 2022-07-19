@@ -4,22 +4,20 @@
 using namespace std ;
 int main () {
     pre;
+    map<char,unsigned long long>mp;
+    string x;
     int t;cin>>t;
     while(t--)
     {
-        map<char,unsigned long long>mp;
-        string x;cin>>x;
-        for(int i = 0 ; i < x.size() ; i++)
-        {
-            mp[x[i]]++;
-        }
+        mp.clear();
+        cin>>x;
+        for(int i = 0 ; i < x.size() ; i++)mp[x[i]]++;
         unsigned long long sum=0;
         for(auto i : mp)
         {
             if(i.second>1)
             {
-                i.second--;
-                sum+=(((i.second*(i.second+1))/2));
+                sum+=((((i.second-1)*(i.second))/2));
             }
         }
         cout<<sum<<"\n";
