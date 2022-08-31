@@ -20,30 +20,36 @@ signed main (){
     int t;cin>>t;
     while(t--)
     {
-        int n;cin>>n;
+        int k;cin>>k;
         string x;cin>>x;
-        deque<int>v;
-        deque<int>ans;
+        string y=x;
+        reverse(x.begin(),x.end());
+        int n=x.size();
+        if(n==1){cout<<0<<"\n";continue;}
         int c=0;
-        int l=0,r=n-1;
-        while(l<r)
+        for(int i = 0 ; i < n ; i++)
         {
-            if(x[r]=='R')c+=n-1-r,v.push_back(r-(n-r-1));
-            else c+=r;
-
-            if(x[l]=='L')c+=l,v.push_back(n-l-1-l);
-            else c+=n-l-1;
-
-            l++;r--;
+            if(y[i]=='L')c+=i;
+            else c+=n-1-i;
         }
-        c+=(n/2)*(n&1);
-        for(auto i : v)
+        vector<int>v;
+        for(int i = 0 ; i < n/2 ; i++)
         {
-            c+=i;
-            ans.push_back(c);
+            if(y[i]=='L')
+            {
+                c+=n-1-i;
+                c-=i;
+                v.push_back(c);
+            }
+            if(x[i]=='R')
+            {
+                c+=n-1-i;
+                c-=i;
+                v.push_back(c);
+            }
         }
-        int c1=n;
-        for(auto i : ans)cout<<i<<" ",c1--;
+        int c1=k;
+        for(auto i : v)cout<<i<<" ",c1--;
         while(c1--)cout<<c<<" ";
         cout<<"\n";
     }
